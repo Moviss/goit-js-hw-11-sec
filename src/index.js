@@ -108,7 +108,11 @@ more.addEventListener('click', async event => {
   event.preventDefault();
   if (total / 40 > currentPage) {
     currentPage += 1;
-    await getPhotos(localStorage.getItem('searchText'));
+    const textToSearch = localStorage.getItem('searchText');
+    if (textToSearch === null) {
+      textToSearch = '';
+    }
+    await getPhotos(textToSearch);
   } else {
     Notify.failure(
       "We're sorry, but you've reached the end of search results."
