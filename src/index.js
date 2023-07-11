@@ -108,7 +108,7 @@ more.addEventListener('click', async event => {
   event.preventDefault();
   if (total / 40 > currentPage) {
     currentPage += 1;
-    const textToSearch = localStorage.getItem('searchText');
+    let textToSearch = localStorage.getItem('searchText');
     if (textToSearch === null) {
       textToSearch = '';
     }
